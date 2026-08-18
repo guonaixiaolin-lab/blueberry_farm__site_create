@@ -1,0 +1,860 @@
+@charset "utf-8";
+
+/*base-style*/
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  color: #5c4632;
+  background: #faf8f3;
+}
+
+.bottom,
+.radio,
+select,
+.point-card
+{
+  cursor: pointer;
+}
+
+/*header*/
+.index-header {
+  position: absolute;
+  left: 5px;
+  display: flex;
+  justify-items: center;
+  padding: 24px 40px;
+  box-sizing: border-box;
+  z-index: 10;
+  width: 100%;
+  justify-content: space-between;
+  color: #5c4632;
+  font-weight: bold;
+}
+
+.logo {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 100px;         /* 現状より小さめに */
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+
+.logo-img {
+  width: 100px;
+  height: auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+  margin-bottom: 12px;
+}
+
+
+
+/*hero*/
+.notice-bar {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);          /* すりガラス風 */
+  color: #f8f2e8;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 12px 28px;
+  border-radius: 999px;                /* 角丸ではなくピル型に */
+  white-space: nowrap;
+}
+
+.notice-bar:not(.active) {
+  visibility: hidden; /* スペースは保持して詰めない */
+}
+
+.notice-bar-img1 {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+  margin-right: 20px;   
+}
+
+.notice-bar-img2 {
+  width: 40px;
+  height: 40px;
+}
+/* ===== ヒーロー(背景画像) ===== */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-image: url("/peg/hero1.JPG"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+  flex-shrink: 0; /* 縮まないようにする */
+  color: #faf8f3;
+  top: 150px;
+  left: 900px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: bold;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);   /* 背景に馴染ませつつ視認性確保 */
+  margin: 0;
+  color: #fff;
+}
+
+.hero-sub {
+  font-size: 22px;
+  font-weight: 400;
+  color: #faf8f3;
+  margin-top: 16px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+.hero-text {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* 営業期間の付箋カード */
+.notice-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;   /* 画面が狭いときは折り返す */
+}
+
+.side-img {
+  width: 300px;
+  border-radius: 500px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: -60px;  
+  mask-image: radial-gradient(circle, black 40%, transparent 100%);
+}
+
+.notice-paper {
+  background: #f8f2e8;
+  width: 90%;
+  max-width: 450px;
+  margin: 30px 200px;   
+  border: 1px solid #eadfcd;
+  border-radius: 24px 18px 22px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transform: rotate(-1deg);
+  padding: 20px;
+  box-sizing: border-box;
+  color: #5c4632;
+}
+
+.notice-paper h2,
+.notice-paper h3 {
+  text-align: center;
+  margin: 8px 0;
+}
+
+/*画面に応じて1/2、1/3、1/4等分する*/
+.grit {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+ align-items: flex-start; 
+  justify-content: center;
+}
+
+.price-img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+.grit-col-2>.grit-item {
+  margin-top: 50px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.grit-col-3>.grit-item {
+  width: 33.3%;
+}
+
+.grit-col-4>.grit-item {
+  width: 25%;
+  text-align: center;
+}
+
+
+.section-bottom {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/*こだわり*/
+.about-section {
+  padding: 30px 15px;
+}
+
+.about-headline-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.about-sectionHeadline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 40px;
+  color: #4b3f72;
+  justify-content: center; 
+  line-height: 1;
+}
+
+.about-sectionHeadline2 {
+  color: #8b8c6b;
+}
+
+
+
+/*特徴*/
+.feature {
+  text-align: center;
+  padding: 0 15px;
+}
+
+
+
+.feature-headline {
+  font-weight: bold;
+  font-size: 25px;
+  margin: 0 0 20px;
+  color: #4b3f72;
+}
+
+
+.feature-img {
+  display: block;
+  width: 100px;
+  margin: 0 auto 25px;
+  /* ← 下に25pxの余白をつける */
+}
+
+.feature-description {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.price-card {
+  background: #f8f2e8;
+  border: 1px solid #e0d4c0;
+  border-radius: 12px;
+  padding: 40px;
+  width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);  
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+/* ラッパーで位置の基準を作る */
+.price-card-wrapper {
+  position: relative;
+  display: inline-block;
+z-index: 0;
+}
+
+.grit .price-card-wrapper:nth-child(1) { transform: translateY(0px); }
+.grit .price-card-wrapper:nth-child(2) { transform: translateY(40px); }
+
+/* デコ画像：ラッパー基準で左上に絶対配置、z-index低く */
+.card-deco-img {
+  position: absolute;
+  top: -200px;
+  left: -300px;
+  width: 550px;
+  height: auto;
+  z-index: 0;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+
+.price-card::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 100px;
+  height: 24px;
+  background: linear-gradient(135deg, #5e4b8b, #3e2d5c);
+  opacity: 0.6;
+}
+
+
+
+/*bottom*/
+.bottom {
+  margin-bottom: 50px;
+  margin-top: 30px;
+  display: inline-block;
+  color: #fff;
+  font-size: 14px;
+  background-color: #4b3f72;
+  text-align: center;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.bottom:hover {
+  opacity: 0.3s;
+}
+
+
+.alert-btn {
+  cursor: pointer;
+  background: #f6ecd7;
+  color: #333;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 15px;
+  font-size: 14px;
+  width: 140px;
+  margin-top: 0;
+  display: inline-block;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column; /* ← 縦並び */
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 50px;
+}
+
+/*footer*/
+.footer {
+  margin-top: 100px;
+  background-image: url("/peg/footer.JPG"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #5c4632;
+  position: relative;       /* overlayの基準点にする */
+  overflow: hidden;
+  font-size: 20px;
+}
+
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.55);
+  z-index: 1;
+  pointer-events: none; 
+}
+
+.footer-map {
+  margin: 0;
+ padding: 70px 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+
+.footer-map>iframe {
+  width: 60%;
+  height: 400px;
+}
+
+.footer-mapinfo {
+  width: 40%;
+  padding: 5px;
+  text-align: center;
+  justify-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-maplogo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.footer-maplogo>svg {
+  fill: transparent;
+  margin-right: 10px;
+}
+
+.footer-address {
+  font-style: normal;
+  font-size: 20px;
+}
+
+.footer-address>a {
+  color: #5c4632;
+}
+
+.phone{
+  display: block;
+  margin: 30px 0 0 60px;
+  font-size: 30px;
+}
+
+.phone>p{
+  font-size: 20px;
+  color: #3e2d5c;
+}
+.pone-img{
+  width: 60px;
+ filter:brightness(0) saturate(100%) invert(15%) sepia(38%) saturate(1553%) hue-rotate(345deg) brightness(94%) contrast(89%);
+}
+
+.Instagram{
+  margin:30px 0 0 90px;
+  filter: brightness(0) saturate(100%) invert(15%) sepia(38%) saturate(1553%) hue-rotate(345deg) brightness(94%) contrast(89%);
+}
+.Instagram a {
+  display: flex;          /* ← 横並びに */
+  align-items: center;    /* ← 上下中央揃え */
+  gap: 40px;
+  text-decoration: none;  /* ← 下線を消す */
+  color: #5c4632;
+  margin-top: 20px;
+}
+
+.sns-text {
+  color: #5c4632;
+  line-height: 1.8;
+}
+
+.footer-line {
+  border-color: #4b3f72;
+}
+
+/*.footer-btn {}*/
+
+
+
+
+
+/* calender*/
+.calendar-section{
+   position: relative; 
+}
+
+.calendar-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 80px;
+}
+
+.calendar-header-wrapper img {
+  width: 100px;      /* サイズを固定 */
+  height: 100px;
+  flex-shrink: 0;   /* 縮まない */
+}
+
+.calender-header {
+  line-height: 1;   /* 文字とアイコンの縦位置ズレを防ぐ */
+    width: auto;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 0; /* ← 削除 or 0に */
+    color: #4b3f72;
+    margin: 30px;
+}
+
+.calender-title {
+  text-align: center;
+  color: #4b3f72;
+}
+
+.calendar-container {
+  background-color: transparent;
+  background-size: cover;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+  align-items: flex-start;
+  /* ← 上揃え */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.calendar-container table {
+  width: 100%;
+}
+
+.calendar-container td,
+.calendar-container th {
+  font-size: 2rem;   
+  padding: 20px 10px;   /* 上下の余白を増やす */
+  height: 70px;
+  text-align: center;
+}
+
+.calendar-container td {
+  height: 90px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;   /* ← アイコンの基準点にする */
+}
+
+.day-cell {
+  /* flexをやめて、数字はシンプルに中央配置のまま */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-num {
+  line-height: 1;
+}
+
+/* デスクトップ用のアイコンサイズ・位置指定（このブロックが抜けると原寸大で崩れます） */
+.calendar-container td .day-icon {
+  position: absolute;      /* ← 数字の位置に一切影響しない */
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 50px;
+  display: block;
+}
+
+#cal-7,
+#cal-8 {
+  width: 100%;
+  max-width: 700px;   /* ← 横に広がりすぎないよう上限をつける */
+  table-layout: fixed;
+  margin: 0 auto;
+}
+
+.sat {
+  color: #00bff0;
+}
+
+.sun {
+  color: #ff6347;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  /* header */
+  .index-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 10px;
+    gap: 8px;
+  }
+
+  .logo {
+    position: static;
+    justify-content: center;
+    width: 80px;
+  }
+
+  .right-group {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-list>a {
+    white-space: nowrap;
+  }
+
+  /* お知らせバー（元 .bubble-text は現在 .notice-bar に名称変更済み） */
+  .notice-bar {
+    top: 12px;
+    font-size: 14px;
+    padding: 8px 16px;
+    max-width: 90%;
+    white-space: normal;
+    text-align: center;
+  }
+
+
+  /* hero */
+  .hero {
+    flex-direction: column;
+    padding-top: 100px;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 80%;
+  }
+
+  .hero-content {
+    position: static;
+    left: 0;         /* ← PC用の left:900px をリセット（画面外にはみ出すのを防止） */
+    top: 0;
+    transform: none;
+    max-width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .hero-title {
+    font-size: 32px;   /* ← スマホ用に縮小（元は56px固定のまま未対応だった） */
+  }
+
+  .hero-sub {
+    font-size: 20px;
+    margin-top: 8px;
+  }
+
+  .hero-text {
+    font-size: 14px;
+  }
+
+  .hero-bottom {
+    flex-direction: column;
+    /* スマホは縦並び */
+    align-items: center;
+  }
+
+  /* point-card */
+  .point-card {
+    width: calc(100% - 40px);
+    margin: 0 20px 20px 20px;
+  }
+
+  .bottom,
+  .radio,
+  .select {
+    font-size: 16px;
+    display: block;
+  }
+
+  .notice-row {
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .side-img {
+    width: 160px;         /* ← 300px固定のままだと画面幅を超えてしまうため縮小 */
+    margin-top: 0;
+  }
+
+  .notice-paper {
+    width: 90%; /* 画面幅に合わせる */
+    max-width: 100%;
+    margin: 20px auto;    /* ← PC用の margin: 30px 200px をリセット */
+    white-space: normal; /* 折り返しを許可 */
+    box-sizing: border-box;
+    transform: none;      /* 傾きも解除して見やすく */
+  }
+
+  .notice-paper h3 {
+    font-size: 15px;
+  }
+
+
+  /*画面に応じて1/2、1/3、1/4等分する　スマホ対応*/
+
+  .grit {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    /* 下に少し隙間を作る */
+  }
+
+  /*スマホ対応  画面に応じて1/2、1/3、1/4等分する*/
+
+  .grit-col-2>.grit-item,
+  .grit-col-3>.grit-item {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  .grit .price-card-wrapper:nth-child(1),
+  .grit .price-card-wrapper:nth-child(2) {
+    transform: none;   /* PC用の位置ズレ演出を解除 */
+  }
+
+  .price-card {
+    width: 100%;         /* ← 500px固定のままだと画面からはみ出すため可変に */
+    max-width: 350px;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  .card-deco-img {
+    display: none;        /* ← スマホでは装飾画像が大きすぎて崩れるため非表示 */
+  }
+
+  .feature-headline {
+    font-size: 20px;
+  }
+
+  .feature-description {
+    font-size: 16px;
+  }
+
+
+  /* 入力欄の枠のサイズ　スマホ対応 */
+
+  .input,
+  .textarea,
+  .select {
+    min-width: auto;
+    width: 100%;
+  }
+
+  /*footer-map スマホ対応 */
+
+  .footer-map {
+    width: 100%;
+    flex-direction: column;
+    /* ← これが正解 */
+    align-items: center;
+    /* ← iframe を中央に寄せる */
+    padding: 40px 16px;
+  }
+
+
+  /*footer-map > iframe スマホ対応 */
+
+  .footer-map>iframe {
+    width: 100%;
+    height: 280px;
+  }
+
+
+  /*footer-map > iframe スマホ対応 */
+  .footer-address {
+    width: 100%;
+  }
+
+
+  /*footer-mapinfo スマホ対応 */
+
+  .footer-mapinfo {
+    width: 100%;
+    /* ← 住所の箱を広げる */
+    text-align: center;
+    /* ← 中央寄せにしたい場合 */
+  }
+
+  .phone {
+    margin: 20px auto 0;   /* ← PC用の左マージン60pxをリセットして中央寄せに */
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .Instagram {
+    margin: 20px auto 0;   /* ← PC用の左マージン90pxをリセットして中央寄せに */
+  }
+
+  .Instagram a {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+
+  /* about セクション（こだわり・料金）のアイコン */
+  .about-headline-wrapper img,
+  .calendar-header-wrapper img {
+    width: 50px;     /* ← HTML側 width="200" 指定のままだとスマホで崩れるため縮小 */
+    height: 50px;
+  }
+
+  .about-sectionHeadline {
+    font-size: 26px;   /* ← 40px固定だと画面幅を超えるため縮小 */
+    margin: 20px;
+    gap: 8px;
+  }
+
+  .calender-header {
+    font-size: 22px;
+    margin: 10px;
+  }
+
+
+/* カレンダー */
+
+  .calendar-container {
+    flex-direction: column;
+    /* 縦並びに */
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  #cal-7,
+  #cal-8 {
+    width: 100%;
+    /* 横幅いっぱい */
+  }
+
+  .calendar-container td,
+  .calendar-container th {
+    font-size: 1.1rem;   /* ← 2rem固定だと数字が大きすぎてセルからはみ出すため縮小 */
+    padding: 10px 4px;
+  }
+
+  .calendar-container td {
+    height: 60px;
+    vertical-align: middle;   /* ← display:flexだとテーブルの行・列構造が崩れるため、これに変更 */
+  }
+
+  .calendar-container td .day-icon {
+    width: 32px;    /* ← 60x50px固定のままだと狭いセルでは大きすぎるため縮小 */
+    height: 26px;
+    bottom: -12px;
+  }
+
+  .side-img {
+    position: static;
+    transform: none;
+    margin: 20px auto;
+    display: block;
+  }
+}

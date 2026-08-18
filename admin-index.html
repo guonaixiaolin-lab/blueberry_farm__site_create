@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小林ブルーベリー農園 管理画面</title>
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+JP:wght@100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- ログインしていない場合に表示 -->
+  <div id="login-section" style="text-align:center; padding: 150px 20px;">
+    <h2 style="margin-bottom:30px;">管理者ログイン</h2>
+    <input id="password-input" type="password" placeholder="パスワードを入力してください"
+      style="padding:10px; font-size:16px; border-radius:8px; border:1px solid #ccc; margin-bottom:16px; display:block; margin:0 auto 16px;">
+    <button onclick="login()" class="bottom">ログイン</button>
+    <p id="login-error" style="color:red; margin-top:10px;"></p>
+  </div>
+
+  <!-- ログイン後に表示 -->
+  <div id="main-section" style="display:none;">
+
+    <div class="notice-bar active" id="bubble"></div>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="logo"></div>
+        <img class="logo-img" src="/peg/logo.png" alt="logo">
+        <h1 class="hero-title">小林ブルーベリー農園</h1>
+        <p class="hero-sub">房総の自然の恵みを感じてみませんか？</p>
+      </div>
+    </section>
+
+    <div class="btn-group">
+      <button class="alert-btn" onclick="toggleAlert()">🔔 お知らせ</button>
+    </div>
+    <section>
+      <section class="calendar-section">
+        <div class="calendar-header-wrapper">
+          <img class="calender-img" src="/peg/leaf.png" width="200" height="200">
+          <h1 class="calender-header">営業日カレンダー</h1>
+          <img class="calender-img" src="/peg/leaf.png" width="200" height="200">
+        </div>
+        <div class="calendar-container">
+          <div class="calendar-table"></div>
+          <div id="cal-7"></div>
+          <div id="cal-8"></div>
+        </div>
+        <div class="notice-row">
+          <img class="side-img" src="/peg/side-picture.JPG" alt="picture">
+          <div class="notice-paper">
+            <h2>営業期間（目安）</h2>
+            <h3>7月19日から8月下旬まで（土・日・祝日含む）<br>8:00〜16:00</h3>
+            <p>天候や諸事情により休園する場合がございます。<br>
+              実の付き具合で期間変動することがございますので、<br>
+              営業カレンダーもしくはお電話でお問い合わせください</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="about-section">
+      <div class="about-headline-wrapper">
+        <img class="calender-img" src="/peg/blueberry.png" width="200" height="200">
+        <h1 class="about-sectionHeadline">
+          料金案内
+        </h1>
+        <img class="calender-img" src="/peg/blueberry.png" width="200" height="200">
+      </div>
+      <ul class="grit grit-col-2">
+        <li class="grit-item">
+          <div class="price-card-wrapper">
+            <div class="price-card">
+              <dl class="feature">
+                <dt class="feature-headline">食べ放題コース（小学生以上）</dt>
+                <dd class="feature-description">食べ放題＋お持ち帰り1パック<br>￥800</dd>
+              </dl>
+            </div>
+          </div>
+        </li>
+        <li class="grit-item">
+          <div class="price-card-wrapper">
+            <div class="price-card">
+              <dl class="feature">
+                <dt class="feature-headline">摘み取りのみコース</dt>
+                <dd class="feature-description">1kg以上で容器不要な方にお得なコース<br>1kg　￥2,500<br>※1kg以上100g追加ごとに＋250円</dd>
+              </dl>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+
+</body>
+
+<footer class="footer">
+  <div class="footer-overlay"></div>
+  <figure class="footer-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3265.7400828271084!2d139.90146767557383!3d35.06323687279314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6017f88dd80726ed%3A0xe23612d835f412dc!2z44CSMjk0LTA4MDYg5Y2D6JGJ55yM5Y2X5oi_57eP5biC5LiK5rud55Sw77yW77yX77yT4oiS77yR!5e0!3m2!1sja!2sjp!4v1776722077046!5m2!1sja!2sjp"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <figcaption class="footer-mapinfo">
+      <div class="footer-maplogo">
+        <img src="/peg/logo.png" alt="logo" width="40" height="40">
+        小林ブルーベリー園
+      </div>
+      <address class="footer-address">
+        〒294-0806
+        千葉県南房総市上滝田673-1<br />
+        <a href="https://maps.app.goo.gl/Q9Dq3BDt5f3EtccP9" target="blank">Google.Map</a>
+      </address>
+      <phone class="phone">
+        <img class="pone-img" src="peg\受話器の線画アイコン.svg">
+        080-8892-6434<br>
+        <p>※繋がらない時がございますが、<br>ショートメッセージで送ってくだされば<br>折り返しご連絡いたします。</p>
+      </phone>
+      <article class="Instagram">
+        <a href="#" alt="Instagram">
+          <img src="/peg/Instagram_Glyph_White.svg" width="80">
+          <p class="sns-text">Instagramはこちらから<br>皆様からの投稿もお待ちしております！</p>
+        </a>
+      </article>
+    </figcaption>
+  </figure>
+  <hr class="footer-line" />
+</footer>
+
+<script>
+  let noticeVisible = false;
+  const noticeMessage = '<img class="notice-bar-img1" src="/peg/マーケティングのフリーアイコン素材 2.svg">本日は雨のため休園となります<img class="notice-bar-img2" src="/peg/おじぎイラスト.png">';
+
+  window.onload = function () {
+    const token = sessionStorage.getItem('admin-token');
+    if (token) {
+      showMain();
+    }
+  };
+
+  async function login() {
+    const password = document.getElementById('password-input').value;
+    const res = await fetch(ADMIN_API_URL + "/auth", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      sessionStorage.setItem('admin-token', data.token);
+      showMain();
+    } else {
+      document.getElementById('login-error').textContent = "パスワードが違います";
+    }
+  }
+
+  async function showMain() {
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('main-section').style.display = 'block';
+    await loadNotice();
+  }
+
+  async function loadNotice() {
+    const res = await fetch(ADMIN_API_URL + "/notice");
+    const data = await res.json();
+    noticeVisible = data.visible;
+    const bubble = document.getElementById('bubble');
+    bubble.innerHTML = noticeMessage;  
+    bubble.style.display = noticeVisible ? 'block' : 'none';
+  }
+
+  async function toggleAlert() {
+    noticeVisible = !noticeVisible;
+    await fetch(ADMIN_API_URL + "/notice", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        token: "blueberry-admin-token",
+        visible: noticeVisible,
+        message: noticeMessage
+      })
+    });
+    const bubble = document.getElementById('bubble');
+    bubble.style.display = noticeVisible ? 'block' : 'none';
+  }
+
+  function logout() {
+    sessionStorage.removeItem('admin-token');
+    location.reload();
+  }
+</script>
+
+<script>
+  window.CALENDAR_API_URL = "https://q7bj79r1d4.execute-api.ap-northeast-1.amazonaws.com";
+</script>
+<script src="js/calendar.js?v=2"></script>
+<script>
+  const ADMIN_API_URL = "https://q7bj79r1d4.execute-api.ap-northeast-1.amazonaws.com";
+
+
+  // 日付クリックでDynamoDBを更新
+  document.addEventListener('click', async function (e) {
+    const td = e.target.closest('td'); // ← imgをクリックしても親のtdを取得
+    if (td && td.dataset.date) {
+      const token = sessionStorage.getItem('admin-token');
+      const date = td.dataset.date;
+
+      td.classList.toggle('open-day');
+      const isOpen = td.classList.contains('open-day');
+
+      const existingImg = td.querySelector('.day-icon');
+      if (isOpen) {
+        if (!existingImg) {
+          const img = document.createElement('img');
+          img.src = 'peg/blueberry.png';
+          img.classList.add('day-icon');
+          td.appendChild(img);
+        }
+      } else {
+        if (existingImg) existingImg.remove();
+      }
+
+      await fetch(ADMIN_API_URL + "/calendar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ date, isOpen, token })
+      });
+    }
+  });
+</script>
+
+</body>
+
+</html>
