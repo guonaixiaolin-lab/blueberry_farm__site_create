@@ -15,7 +15,7 @@ AWSのサーバーレスアーキテクチャを採用し、低コストで運�
 
 ##システム構成図
 
-！[AWSアーキテクチャ図](AWSアーキテクチャ図.png)
+！[AWSアーキテクチャ図](C:/Users/kanak/OneDrive/ドキュメント/blueberry_farm__site_create/docs/AWSアーキテクチャ図.png)
 
 
 【AWS】
